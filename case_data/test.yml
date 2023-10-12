@@ -1,0 +1,22 @@
+#数据驱动存储的格式为： 标题===》str，测试数据===》dict，断言===》list[dict]，参数提取===>dict
+# title,data,validate,extraction
+
+add_demo:
+  - [ "新增demo", { "参数1": "xxx", "参数2": "xxx" },
+    [ { "expected_value": 0,"condition": "equal","actual_value": "$.code" },
+      { "expected_value": "预期值1", "condition": "mysql","actual_value": "select xx from xx where x = 'xx'" } ] ]
+
+get_demo_list:
+  - [ "获取demo", { "参数1": "xxx", "参数2": "xxx" },
+    [ { "expected_value": 0,"condition": "equal","actual_value": "$.code" },
+      { "expected_value": 0,"condition": "equal","actual_value": "$.code" } ],
+    { "demo_id": "$.data.data[*].id" } ]
+
+update_demo:
+  - [ "更新demo", { "参数1": "xxx", "参数2": "xxx" },
+      [ { "expected_value": 4,"condition": "equal","actual_value": "$.code" } ] ]
+
+delete_core_symbol:
+  - [ "删除demo", { },
+    [ { "expected_value": 0,"condition": "equal","actual_value": "$.code" },
+      { "expected_value": None, "condition": "mysql","actual_value": "select xx from xx where xx = 'xx'" } ] ]

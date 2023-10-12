@@ -1,0 +1,25 @@
+[[source]]
+#url = "https://pypi.doubanio.com/simple/"
+url = "https://mirrors.tuna.tsinghua.edu.cn/ubuntu/"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+pytest = "*"
+allure-pytest = "*"
+faker = "*"
+openpyxl = "*"
+requests = "*"
+pika = "*"
+pymysql = "*"
+mitmproxy = "*"
+redis = "*"
+pyyaml = "*"
+requests-toolbelt = "*"
+websocket-client = "*"
+pytest-ordering = "*"
+
+[dev-packages]
+
+[requires]
+python_version = "3.10"
