@@ -1,4 +1,3 @@
-# -*- coding:utf-8 -*-
 from tools import constant
 from configparser import ConfigParser
 

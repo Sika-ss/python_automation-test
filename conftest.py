@@ -1,6 +1,9 @@
 import time
 
-from common.config import conf
+from tools.ConfTools import DoConf
+from tools import constant
+
+dc = DoConf(constant.globe_conf_dir)
 
 
 def pytest_terminal_summary(terminalreporter):
@@ -19,10 +22,10 @@ def pytest_terminal_summary(terminalreporter):
     # 运行总时长,terminalreporter._sessionstarttime 会话开始时间
     duration = str("{:.2f}".format(time.time() - terminalreporter._sessionstarttime))
     # 将测试结果写入ini配置文件中
-    conf.write_data("test_result", "total", total)
-    conf.write_data("test_result", "passed", passed)
-    conf.write_data("test_result", "failed", failed)
-    conf.write_data("test_result", "error", error)
-    conf.write_data("test_result", "skipped", skipped)
-    conf.write_data("test_result", "successful", successful)
-    conf.write_data("test_result", "duration", duration)
+    dc.set_value("test_result", "total", total)
+    dc.set_value("test_result", "passed", passed)
+    dc.set_value("test_result", "failed", failed)
+    dc.set_value("test_result", "error", error)
+    dc.set_value("test_result", "skipped", skipped)
+    dc.set_value("test_result", "successful", successful)
+    dc.set_value("test_result", "duration", duration)
